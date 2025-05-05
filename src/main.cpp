@@ -51,6 +51,11 @@ int main(void)
         {
             MainGame.ResetMap();
         }
+        //  Mouse button pressed
+        if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
+        {
+            MainGame.SetCellByClick(GetMouseX(), GetMouseY());
+        }
 
         // Update
         MainGame.Update(GetTime());
@@ -70,6 +75,14 @@ int main(void)
             DrawText("R - Random set", 25, 150, 20, GRAY);
             DrawText("C - Clear map", 25, 175, 20, GRAY);
             DrawText("ESC - Exit", 25, 200, 20, GRAY);
+            DrawText("Click - Set Cells", 25, 225, 20, GRAY);
+
+
+            DrawText("Status: ", 25, screenHeight - 40, 20, BLACK);
+            if(MainGame.isRunning)
+                DrawText("RUNNING", 110, screenHeight - 40, 20, { 89, 163, 70, 255});
+            else
+                DrawText("PAUSE", 110, screenHeight - 40, 20, RED);
 
             //  Imgui draw
             rlImGuiBegin();

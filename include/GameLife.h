@@ -28,6 +28,9 @@ private:
 
     double time = 0;
 
+    int screenWidth;
+    int screenHeight;
+
 public:
     GameOfLife(int height, int width, int offset, int size=25);
 
@@ -44,6 +47,8 @@ public:
     int GetCellSize();
 
     void SetRandomCells(int count);
+
+    void SetCellByClick(int X, int Y);
 
     bool isRunning = false;
     

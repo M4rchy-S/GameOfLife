@@ -6,6 +6,9 @@ GameOfLife::GameOfLife(int height, int width, int offset, int size)
 	this->offset = offset;
 	this->cellSize = size;
 
+	this->screenHeight = height;
+	this->screenWidth = width;
+
 	this->height = height / this->cellSize;
 	this->width = width/ this->cellSize;
 
@@ -209,4 +212,27 @@ int GameOfLife::AliveCellsCount()
 int GameOfLife::GetCellSize()
 {
 	return this->cellSize;
+}
+
+void GameOfLife::SetCellByClick(int X, int Y)
+{
+	if (this->isRunning)
+		return;
+	if (X < this->offset || X > this->screenWidth + this->offset)
+		return;
+
+	int j = (X - this->offset) / this->cellSize;
+	int i = Y / this->cellSize;
+
+	if (this->Map[i][j] == ' ')
+	{
+		this->Map[i][j] = '#';
+		this->cellsAlive++;
+	}
+	else
+	{
+		this->Map[i][j] = ' ';
+		this->cellsAlive--;
+	}
+
 }

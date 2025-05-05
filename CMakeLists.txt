@@ -5,7 +5,8 @@ set(PROJECT_NAME GameOfLife)
 
 project(${PROJECT_NAME})
 
-add_executable(${PROJECT_NAME} WIN32 src/main.cpp src/GameLife.cpp extern/rlImGui/rlImGui.cpp)
+# add_executable(${PROJECT_NAME} WIN32 src/main.cpp src/GameLife.cpp extern/rlImGui/rlImGui.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp src/GameLife.cpp extern/rlImGui/rlImGui.cpp)
 
 include_directories(include)
 include_directories(extern/rlImGui)
